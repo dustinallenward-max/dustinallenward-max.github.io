@@ -73,7 +73,7 @@ section+section{border-top:1px solid var(--line)}
 .entry ul{margin:8px 0 0;padding-left:18px;max-width:68ch}
 .entry li+li{margin-top:4px}
 .entry p{margin:6px 0 0;max-width:68ch;color:var(--muted)}
-.fig-num{font-family:var(--mono);font-weight:500;color:var(--fg)}
+.fig-num{white-space:nowrap;font-family:var(--mono);font-weight:500;color:var(--fg)}
 .skills{display:flex;flex-wrap:wrap;gap:8px}
 .skills span{font-size:14px;padding:4px 10px;border:1px solid var(--line);border-radius:3px;background:var(--surface)}
 .skills span.key{border-color:var(--accent);color:var(--accent);font-weight:600}
@@ -105,6 +105,18 @@ figcaption p{margin:4px 0 0;font-size:14px;color:var(--muted)}
 .fos{color:var(--accent)!important}
 
 .vids{grid-template-columns:repeat(2,minmax(0,1fr))}
+.plates.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.frame.dark,.vframe.dark{background:#2b2b2b}
+.frame.dark img{object-fit:contain}
+.vframe.wide{aspect-ratio:16/9;max-width:820px;margin-inline:auto}
+.vframe.wide video{background:#000}
+.solo{margin-bottom:48px}
+.solo figcaption{max-width:820px;margin-inline:auto}
+.badges{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.badge{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}
+.badge .slot{width:100%;max-width:200px;aspect-ratio:1;border:2px dashed var(--line);border-radius:8px;display:grid;place-items:center;background:var(--surface);color:var(--muted);font-size:14px;overflow:hidden}
+.badge .slot img{width:100%;height:100%;object-fit:contain}
+.badge b{font-weight:600}
 .vframe{position:relative;background:var(--plate);border:1px solid var(--line);aspect-ratio:16/9;overflow:hidden}
 .vframe video{width:100%;height:100%;object-fit:contain;display:block;background:var(--plate)}
 .vframe img{width:100%;height:100%;object-fit:contain;filter:saturate(.6) brightness(.92)}
@@ -122,7 +134,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
 @media (max-width:760px){
   .rgrid{grid-template-columns:1fr}
   .rgrid>.col{padding-bottom:28px}
-  .intro,.plates,.vids{grid-template-columns:1fr}
+  .intro,.plates,.vids,.plates.three{grid-template-columns:1fr}
+  .badges{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
   .head{padding-block:32px 24px}
   .head{grid-template-columns:1fr}
   .avatar{grid-row:1;width:160px}
@@ -151,7 +164,8 @@ html{scroll-behavior:smooth}
 
 <nav aria-label="Sections"><div class="wrap">
   <a href="#resume" data-s="resume" class="on">Resume</a>
-  <a href="#project" data-s="project">Project</a>
+  <a href="#project" data-s="project">SolidWorks</a>
+  <a href="#ansys" data-s="ansys">Ansys</a>
 </div></nav>
 
 <main class="wrap">
@@ -233,7 +247,7 @@ html{scroll-behavior:smooth}
   </section>
 
   <section id="project">
-    <div class="sec-head"><span class="label">02</span><h2>Project</h2></div>
+    <div class="sec-head"><span class="label">02</span><h2>SolidWorks Project</h2></div>
 
     <div class="intro">
       <div>
@@ -308,9 +322,136 @@ html{scroll-behavior:smooth}
       </figure>
     </div>
   </section>
+
+  <section id="ansys">
+    <div class="sec-head"><span class="label">03</span><h2>Ansys Project</h2></div>
+
+    <div class="intro">
+      <div>
+        <h3>Dining Table Analysis in Ansys</h3>
+        <p>I brought the same dining table model from SolidWorks into Ansys to analyze it under a new set of conditions.</p>
+        <p>The studies cover stress maps for four load conditions, edge deformation, the first three vibration modes, and an explicit dynamics drop test.</p>
+      </div>
+      <aside class="specs" aria-label="Key results">
+        <div class="cap label">Key results</div>
+        <dl>
+          <dt>Material</dt><dd>Oak</dd>
+          <dt>Applied load (per force)</dt><dd>890 N</dd>
+          <dt>Mode 1 / 2 / 3</dt><dd>44.2 / 55.5 / 59.2 Hz</dd>
+          <dt>Max edge deformation</dt><dd>0.00143 m</dd>
+          <dt>Drop test max stress</dt><dd>6.6195e8 Pa</dd>
+        </dl>
+      </aside>
+    </div>
+
+    <div class="subhead"><h3>Static load studies</h3><span class="label">4 plates</span></div>
+    <div class="plates">
+      <figure>
+        <button class="frame dark" type="button" aria-label="Enlarge: Condition 1A: stress"><img src="img/ansys/stress-1a.jpg" alt="Ansys stress map for load condition 1A" loading="lazy"></button>
+        <figcaption>
+          <div class="cap-top"><b>Condition 1A: stress</b><span class="label fig-num">Fig. 5</span></div>
+          <p>Stress map for load condition 1A.</p>
+        </figcaption>
+      </figure>
+      <figure>
+        <button class="frame dark" type="button" aria-label="Enlarge: Condition 1B: stress"><img src="img/ansys/stress-1b.jpg" alt="Ansys stress map for load condition 1B" loading="lazy"></button>
+        <figcaption>
+          <div class="cap-top"><b>Condition 1B: stress</b><span class="label fig-num">Fig. 6</span></div>
+          <p>Stress map for load condition 1B.</p>
+        </figcaption>
+      </figure>
+      <figure>
+        <button class="frame dark" type="button" aria-label="Enlarge: Condition 1C: stress"><img src="img/ansys/stress-1c.jpg" alt="Ansys stress map for load condition 1C with four 890 N forces" loading="lazy"></button>
+        <figcaption>
+          <div class="cap-top"><b>Condition 1C: stress</b><span class="label fig-num">Fig. 7</span></div>
+          <p>Stress map for load condition 1C.</p>
+          <div class="readout"><span>Loads <b>4 × 890 N</b></span></div>
+        </figcaption>
+      </figure>
+      <figure>
+        <button class="frame dark" type="button" aria-label="Enlarge: Condition 1D: stress"><img src="img/ansys/stress-1d.jpg" alt="Ansys stress map for load condition 1D with four 890 N forces" loading="lazy"></button>
+        <figcaption>
+          <div class="cap-top"><b>Condition 1D: stress</b><span class="label fig-num">Fig. 8</span></div>
+          <p>Stress map for load condition 1D.</p>
+          <div class="readout"><span>Loads <b>4 × 890 N</b></span></div>
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="subhead"><h3>Vibration modes</h3><span class="label">1 video · 3 plates</span></div>
+    <figure class="solo">
+      <div class="vframe dark wide"><video src="vid/ansys-modes.mp4" poster="img/ansys/modes-poster.jpg" controls loop muted autoplay playsinline preload="metadata" aria-label="Video of the table's vibration modes in Ansys"></video></div>
+      <figcaption>
+        <div class="cap-top"><b>Vibration modes</b><span class="label fig-num">Vid. 3</span></div>
+        <p>Recording of the first three vibration modes animating in Ansys.</p>
+        <div class="readout"><span>Mode 1 <b>44.2 Hz</b></span><span>Mode 2 <b>55.5 Hz</b></span><span>Mode 3 <b>59.2 Hz</b></span></div>
+      </figcaption>
+    </figure>
+    <div class="plates three">
+      <figure>
+        <button class="frame dark" type="button" aria-label="Enlarge: Vibration mode 1"><img src="img/ansys/mode1.jpg" alt="Ansys vibration mode 1 shape" loading="lazy"></button>
+        <figcaption>
+          <div class="cap-top"><b>Vibration mode 1</b><span class="label fig-num">Fig. 9</span></div>
+          <p>First mode shape of the table.</p>
+          <div class="readout"><span>f<sub>1</sub> <b>44.2 Hz</b></span></div>
+        </figcaption>
+      </figure>
+      <figure>
+        <button class="frame dark" type="button" aria-label="Enlarge: Vibration mode 2"><img src="img/ansys/mode2.jpg" alt="Ansys vibration mode 2 shape" loading="lazy"></button>
+        <figcaption>
+          <div class="cap-top"><b>Vibration mode 2</b><span class="label fig-num">Fig. 10</span></div>
+          <p>Second mode shape of the table.</p>
+          <div class="readout"><span>f<sub>2</sub> <b>55.5 Hz</b></span></div>
+        </figcaption>
+      </figure>
+      <figure>
+        <button class="frame dark" type="button" aria-label="Enlarge: Vibration mode 3"><img src="img/ansys/mode3.jpg" alt="Ansys vibration mode 3 shape" loading="lazy"></button>
+        <figcaption>
+          <div class="cap-top"><b>Vibration mode 3</b><span class="label fig-num">Fig. 11</span></div>
+          <p>Third mode shape of the table.</p>
+          <div class="readout"><span>f<sub>3</sub> <b>59.2 Hz</b></span></div>
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="subhead"><h3>Deformation and drop test</h3><span class="label">3 plates</span></div>
+    <div class="plates three">
+      <figure>
+        <button class="frame dark" type="button" aria-label="Enlarge: Condition 2, 1A: edge deformation"><img src="img/ansys/deform-edge.jpg" alt="Ansys deformation map at the table edge under condition 2, 1A" loading="lazy"></button>
+        <figcaption>
+          <div class="cap-top"><b>Condition 2, 1A: edge deformation</b><span class="label fig-num">Fig. 12</span></div>
+          <p>Deformation at the table edge.</p>
+          <div class="readout"><span>Max <b>0.00143 m</b></span></div>
+        </figcaption>
+      </figure>
+      <figure>
+        <button class="frame dark" type="button" aria-label="Enlarge: Drop test: deformation"><img src="img/ansys/drop-deform.jpg" alt="Ansys Mechanical explicit dynamics drop test total deformation" loading="lazy"></button>
+        <figcaption>
+          <div class="cap-top"><b>Drop test: deformation</b><span class="label fig-num">Fig. 13</span></div>
+          <p>Total deformation in the explicit dynamics drop test.</p>
+          <div class="readout"><span>Max <b>0.017051 m</b></span><span>t <b>0.01 s</b></span></div>
+        </figcaption>
+      </figure>
+      <figure>
+        <button class="frame dark" type="button" aria-label="Enlarge: Drop test: stress"><img src="img/ansys/drop-stress.jpg" alt="Ansys Mechanical explicit dynamics drop test equivalent stress" loading="lazy"></button>
+        <figcaption>
+          <div class="cap-top"><b>Drop test: stress</b><span class="label fig-num">Fig. 14</span></div>
+          <p>Equivalent (von Mises) stress in the drop test.</p>
+          <div class="readout"><span>Max <b>6.6195e8 Pa</b></span><span>t <b>0.01 s</b></span></div>
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="subhead"><h3>Ansys badges</h3><span class="label">3 badges</span></div>
+    <div class="badges">
+      <div class="badge"><div class="slot">Badge 1</div><b>Badge coming soon</b></div>
+      <div class="badge"><div class="slot">Badge 2</div><b>Badge coming soon</b></div>
+      <div class="badge"><div class="slot">Badge 3</div><b>Badge coming soon</b></div>
+    </div>
+  </section>
 </main>
 
-<footer><div class="wrap"><span>Dustin Ward · Mechanical Engineering, Anderson University</span><span>Models and simulations built in SolidWorks</span></div></footer>
+<footer><div class="wrap"><span>Dustin Ward · Mechanical Engineering, Anderson University</span><span>Models and simulations built in SolidWorks and Ansys</span></div></footer>
 
 <div id="lb" hidden><img alt=""></div>
 
@@ -331,8 +472,8 @@ html{scroll-behavior:smooth}
   document.addEventListener('keydown',function(e){if(e.key==='Escape')lb.hidden=true;});
   var links=document.querySelectorAll('nav a');
   function onScroll(){
-    var p=document.getElementById('project').getBoundingClientRect().top;
-    var cur=p<window.innerHeight*0.4?'project':'resume';
+    var cur='resume',lim=window.innerHeight*0.4;
+    ['project','ansys'].forEach(function(id){if(document.getElementById(id).getBoundingClientRect().top<lim)cur=id;});
     links.forEach(function(a){a.classList.toggle('on',a.dataset.s===cur);});
   }
   addEventListener('scroll',onScroll,{passive:true});onScroll();
